@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <TodoList :todos="todos" @delete-todo="deleteTodo"/>
+    <div>Test git</div>
   </div>
 </template>
 
