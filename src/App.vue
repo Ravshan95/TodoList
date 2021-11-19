@@ -1,26 +1,37 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <TodoList :todos="todos" @delete-todo="deleteTodo"/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TodoList from './components/TodoList.vue'
 
-export default {
-  name: 'App',
+export default{
+  name: "app",
+  data(){
+    return {
+      todos: ['Первый','Второй','Третый']
+    }
+  },
   components: {
-    HelloWorld
+    TodoList
+  },
+  methods: {
+    deleteTodo(index){
+      this.todos.splice(index, 1);
+    }
   }
 }
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+</script>
+<style scoped>
+  #app {
+    display: block;
+    padding: 30px;
+    margin: 0 auto;
+    margin-top: 50px;
+    background:rgba(209, 95, 95, 0.192);
+    max-width: 1000px;
+  }
 </style>
