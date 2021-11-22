@@ -1,9 +1,7 @@
 <template>
     <ul>
-        <li v-for="(todo, index) in todos" :key="index">{{ todo }} <span @click="deleteTodo(index)">-</span></li>
+        <li v-for="(todo, index) in todos" :key="index">{{ todo }} <span @click="deleteTodo(index)">&#10006;</span></li>
     </ul>
-    <input type="text" :v-model="messege">
-    <button class="btn" @click="messegeAdd">Добавить</button>
 </template>
 
 <script>
@@ -12,8 +10,6 @@ export default {
     methods: {
         deleteTodo(index){
             this.$emit('delete-todo', index);
-        },
-        messege(){
         }
     }
 }
@@ -31,10 +27,14 @@ ul li {
 }
 ul li span {
     margin-left: auto;
-    padding: 20px;
-    line-height: 1px;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
     background: rgba(0, 0, 0, 0.048);
-    display: block;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 input {
     padding: 10px 20px;
